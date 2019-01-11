@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center">
+  <h1 class="text-center my-5">Store-box</h1>
+</div>
+
+<input type="file" style="display: none;" id="file-upload" >
+
+<div class="container d-flex justify-content-center">
+  <button class="btn btn-success btn-lg" id="upload-button">Upload New File</button>
+</div>
+
+<div class="container my-4">
+  <ul class="list-group" id="progress-bars">
+
+  </ul>
+</div>
+
+<div class="container my-5">
+  <ul class="list-group" id="documents-list">
+    <% @documents.each do |document|  %>
+      <li class="list-group-item">
+        <%= document.file.filename %>
+        <a class="btn-sm btn-info float-right download-button" data-download-id="<%=document.id%>" href="<%=rails_blob_path(document.file)%>" target="_blank" download>Download</a>
+      </li>
+    <% end %>
+  </ul>
+</div>

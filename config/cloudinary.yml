@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: rachelabaniwo
+  api_key: '525598136874125'
+  api_secret: xRKK1H_43xFyiWpFsyRCwYodQoc
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: rachelabaniwo
+  api_key: '525598136874125'
+  api_secret: xRKK1H_43xFyiWpFsyRCwYodQoc
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: rachelabaniwo
+  api_key: '525598136874125'
+  api_secret: xRKK1H_43xFyiWpFsyRCwYodQoc
+  enhance_image_tag: true
+  static_file_support: false

@@ -1,0 +1,26 @@
+// Place all the styles related to the Documents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.app-container, .upload-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .app-header {
+    color: #00c386;
+  }
+}
+
+.button {
+  background: #00c386;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
