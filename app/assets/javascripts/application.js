@@ -29,12 +29,6 @@ uploadButton.addEventListener('click', function () {
   fileUploadInput.click()
 })
 
-
-function toggleButtonLoadingState(uploading = true) {
-  uploadButton.disabled = uploading
-  uploadButton.innerText = uploading ? 'Loading ...': 'Upload New File'
-}
-
 function getProgressbar(name) {
   return document.querySelector('[data-file-name="' + name + '"]')
 }
@@ -82,7 +76,6 @@ function handleFileUpload(files) {
   axios.post('/documents/store', formData, {
     onUploadProgress: uploadProgress
   }).then(function(response) {
-    toggleButtonLoadingState(false)
     var document = generateNewListItem(response.data)
     documentsList.innerHTML += document
 

@@ -1,17 +1,2 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  bytes: 
-  download_count: 
-  format: MyString
-  original_filename: MyString
-  secure_url: MyString
-  name: MyString
-
-two:
-  bytes: 
-  download_count: 
-  format: MyString
-  original_filename: MyString
-  secure_url: MyString
-  name: MyString
