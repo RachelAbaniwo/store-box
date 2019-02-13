@@ -10,12 +10,27 @@ class DocumentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should not display all documents on homepage if login password is wrong" do
+    @document = Document.create
+    @document.file.attach(
+      io: File.open(Rails.root.to_s + '/test/fixtures/files/test.pdf'), 
+      filename: 'test.pdf'
+    )
+
+    post '/authenticate', params: {password: 'wrongpassword'}
+    get '/'
+    
+    assert_select 'ul#documents-list', 0
+  end
+
   test "should display all documents on homepage" do
     @document = Document.create
     @document.file.attach(
       io: File.open(Rails.root.to_s + '/test/fixtures/files/test.pdf'), 
       filename: 'test.pdf'
     )
+    
+    post '/authenticate', params: {password: ENV['SECURE_PASSWORD']}
     get '/'
     assert_select 'ul#documents-list' do
       assert_select 'li.list-group-item', 1
