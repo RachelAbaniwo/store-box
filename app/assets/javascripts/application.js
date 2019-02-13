@@ -60,6 +60,27 @@ function removeProgressbar(name) {
 
 function handleFileUpload(files) {
   var file = files[0]
+
+  if (getProgressbar(file.name)) {
+    fileUploadInput.value = ''
+
+    return (new Noty({
+      text: 'A file with the same name is uploading...',
+      timeout: 5000,
+      type: 'warning'
+    })).show()
+  }
+
+  if (file.size > 20000000) {
+    fileUploadInput.value = ''
+
+    return (new Noty({
+      text: 'Files greater than 20MB cannot be uploaded.',
+      timeout: 5000,
+      type: 'warning'
+    })).show()
+  }
+
   var formData = new FormData()
   formData.append('file', file)
   formData.append('name', file.name)
@@ -72,6 +93,8 @@ function handleFileUpload(files) {
   var progressBarForUpload = generateProgressBar(file)
 
   progressBars.innerHTML += progressBarForUpload
+
+  fileUploadInput.value = ''
 
   axios.post('/documents/store', formData, {
     onUploadProgress: uploadProgress
