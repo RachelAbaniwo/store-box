@@ -16,5 +16,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js' %>
+    <script>
+      <% if flash[:error] %>
+        (new Noty({
+          text: '<%= flash[:error] %>',
+          type: 'error'
+        })).show()
+      <% end %>
+    </script>
   </body>
 </html>
